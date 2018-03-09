@@ -1,0 +1,7 @@
+{
+  "db": {
+    "url": "${MONGODB}",
+    "name": "db",
+    "connector": "mongodb"
+  }
+}

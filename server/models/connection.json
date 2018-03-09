@@ -1,0 +1,54 @@
+{
+  "name": "Connection",
+  "plural": "Connections",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [
+    "password"
+  ],
+  "properties": {
+    "userId": {
+      "type": "number",
+      "required": true
+    },
+    "provider": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string"
+    },
+    "host": {
+      "type": "string"
+    },
+    "smtp": {
+      "type": "string"
+    },
+    "accessToken": "String",
+    "refreshToken": "String"
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "*"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": {}
+}

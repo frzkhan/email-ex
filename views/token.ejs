@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<script>
+      if (window.opener && !window.opener.closed) {
+        window.opener.postMessage(<%- JSON.stringify(response) %>, '*');
+        window.close();
+      } else {
+        console.error('No opener window found');
+      }
+
+</script>
+</body>
+</html>

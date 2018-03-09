@@ -1,0 +1,43 @@
+{
+  "name": "Account",
+  "plural": "Accounts",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "realm": false,
+    "username": false,
+    "emailVerified": false
+  },
+  "validations": [],
+  "relations": {
+    "connections": {
+      "type": "hasMany",
+      "model": "Connection",
+      "foreignKey": "userId"
+    },
+    "mails": {
+      "type": "hasMany",
+      "model": "Mail",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "*"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "deleteById"
+    }
+  ],
+  "methods": {
+  }
+}
